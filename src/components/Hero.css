@@ -1,29 +1,65 @@
-.main-text {
-  font-size: 96px;
-  font-weight: bold;
-  color: white;
+/* Contenedor general */
+.hero-container {
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+  padding: 2rem;
 }
 
+/* Texto principal */
+.main-text {
+  font-size: 96px;
+  font-weight: 700;
+  color: white;
+  margin: 0;
+}
+
+/* Texto con gradiente */
 .secondary-text {
-  background: linear-gradient(0.25turn, #00ff9d, #ebf8e1, #cf5cff);
+  background: linear-gradient(0.25turn, #0743e9, #ebf8e1, #d448ff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-.btn{
-    width: 130px;
-    height: 56px;
-    border: none;
-    background-color: #00ff9d;
-    font-size: 20px;
-    text-transform: uppercase;
-
+/* Descripción */
+.description {
+  margin-top: 1rem;
+  font-size: 18px;
+  color: #cccccc;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.btn-container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-    
+/* Contenedor de botones */
+.btn-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin-top: 2rem;
+}
+
+/* Botones */
+.btn {
+  width: 150px;
+  height: 56px;
+  border: none;
+  background-color: #0743e9;
+  font-size: 16px;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-family: 'Poppins', sans-serif;
+  text-decoration: none;
+  color: #e7d4ff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  transition: 0.3s ease;
+}
+
+/* Hover */
+.btn:hover {
+  transform: scale(1.05);
+  background-color: #26008d;
 }
