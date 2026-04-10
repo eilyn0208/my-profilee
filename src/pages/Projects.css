@@ -1,0 +1,144 @@
+/* Projects.css */
+
+.projects-main {
+  padding: 120px 2rem 60px;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.projects-header {
+  margin-bottom: 4rem;
+}
+
+.projects-title {
+  font-family: var(--font-headline);
+  font-size: clamp(3rem, 8vw, 5rem);
+  font-weight: 800;
+  color: var(--on-surface);
+  letter-spacing: -0.04em;
+  margin: 1rem 0;
+}
+
+.projects-subtitle {
+  color: var(--on-surface-variant);
+  font-size: 1.2rem;
+  max-width: 600px;
+  line-height: 1.6;
+}
+
+/* Bento Grid System */
+.projects-bento-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 2rem;
+}
+
+.project-card {
+  grid-column: span 6; /* Por defecto ocupan la mitad */
+  background: var(--surface-container-low);
+  border-radius: 2rem;
+  overflow: hidden;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.project-card.featured {
+  grid-column: span 8; /* El destacado ocupa más espacio */
+}
+
+/* En móviles, todos ocupan el ancho completo */
+@media (max-width: 900px) {
+  .project-card, .project-card.featured {
+    grid-column: span 12;
+  }
+}
+
+.project-image-wrapper {
+  position: relative;
+  aspect-ratio: 16/10;
+  overflow: hidden;
+}
+
+.project-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s ease;
+}
+
+.project-card:hover .project-image-wrapper img {
+  transform: scale(1.05);
+}
+
+.project-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, var(--background), transparent);
+  display: flex;
+  align-items: flex-start;
+  padding: 2rem;
+}
+
+.project-tags {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.tag {
+  background: rgba(41, 28, 83, 0.6);
+  backdrop-filter: blur(10px);
+  color: var(--secondary);
+  padding: 0.4rem 0.8rem;
+  border-radius: 2rem;
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.project-info {
+  padding: 2rem;
+}
+
+.project-card-title {
+  font-family: var(--font-headline);
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  color: var(--on-surface);
+}
+
+.project-card-description {
+  color: var(--on-surface-variant);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+/* Botón de GitHub */
+.btn-github {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+  color: var(--on-surface);
+  font-family: var(--font-label);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  border: 1px solid var(--outline-variant);
+  padding: 0.8rem 1.5rem;
+  border-radius: 0.75rem;
+  transition: 0.3s;
+}
+
+.btn-github:hover {
+  background: var(--primary);
+  color: var(--on-primary);
+  border-color: var(--primary);
+  transform: translateY(-2px);
+}
+
+.btn-github span {
+  font-size: 1.2rem;
+}

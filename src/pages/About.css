@@ -1,0 +1,160 @@
+/* About.css */
+
+.about-main {
+  padding-top: 100px; /* Espacio para la Navbar fija */
+  background-color: var(--background);
+  color: var(--on-surface);
+}
+
+.about-hero {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.about-title {
+  font-family: var(--font-headline);
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  font-weight: 800;
+  line-height: 1.1;
+  margin: 1.5rem 0;
+}
+
+.description-text {
+  font-size: 1.2rem;
+  color: var(--on-surface-variant);
+  line-height: 1.7;
+  margin-bottom: 2.5rem;
+}
+
+/* Stats */
+.stats-container {
+  display: flex;
+  gap: 3rem;
+}
+
+.stat-number {
+  display: block;
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--primary);
+  font-family: var(--font-headline);
+}
+
+.stat-label {
+  font-family: var(--font-label);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  color: var(--outline);
+  letter-spacing: 1px;
+}
+
+/* Imagen y Blobs */
+.about-image-container {
+  position: relative;
+}
+
+.image-wrapper {
+  aspect-ratio: 4/5;
+  border-radius: 2rem;
+  overflow: hidden;
+  background: var(--surface-container);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  z-index: 2;
+  position: relative;
+}
+
+.profile-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(100%);
+  transition: 0.7s ease;
+}
+
+.profile-img:hover {
+  filter: grayscale(0%);
+}
+
+.blob-1, .blob-2 {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  z-index: 1;
+}
+
+.blob-1 {
+  bottom: -20px;
+  right: -20px;
+  width: 200px;
+  height: 200px;
+  background: rgba(163, 166, 255, 0.2);
+}
+
+/* Skills Bento Grid */
+.skills-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 6rem 2rem;
+  text-align: center;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+
+.skill-card {
+  background: var(--surface-container-high);
+  padding: 2.5rem;
+  border-radius: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  transition: all 0.3s ease;
+}
+
+.skill-card:hover {
+  background: var(--primary);
+  transform: translateY(-5px);
+}
+
+.skill-icon {
+  font-size: 2.5rem;
+  color: var(--primary);
+}
+
+.skill-card:hover .skill-icon,
+.skill-card:hover .skill-name {
+  color: var(--on-primary);
+}
+
+.skill-name {
+  font-family: var(--font-label);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--on-surface-variant);
+}
+
+/* Responsividad */
+@media (max-width: 968px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+  .about-image-container {
+    order: -1;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+}

@@ -1,0 +1,140 @@
+:root {
+  /* Paleta de Colores Original */
+  --background: #10062d;
+  --surface: #10062d;
+  --surface-container: #1c113f;
+  --surface-container-low: #160b36;
+  --surface-bright: #30215d;
+  
+  --primary: #a3a6ff;
+  --primary-dim: #6063ee;
+  --secondary: #89f5e7;
+  --tertiary: #ff9dd1;
+  
+  --on-surface: #eae1ff;
+  --on-surface-variant: #b0a4d3;
+  --outline-variant: #4b426a;
+
+  /* Tipografía */
+  --font-headline: 'Manrope', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-label: 'Space Grotesk', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--on-surface);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* Estilos de encabezado tipo Glassmorphism */
+.glass-header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 50;
+  background: rgba(16, 6, 45, 0.8);
+  backdrop-filter: blur(24px);
+  border-bottom: 1px solid rgba(75, 66, 106, 0.2);
+  padding: 1.5rem 2rem;
+}
+
+/* Tipografías específicas */
+h1, h2, h3 {
+  font-family: var(--font-headline);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.label-text {
+  font-family: var(--font-label);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.8rem;
+  color: var(--secondary);
+}
+
+/* Botón principal con degradado */
+.btn-primary {
+  background: linear-gradient(135deg, var(--primary), var(--primary-dim));
+  color: #0f00a4;
+  padding: 1rem 2.5rem;
+  border-radius: 0.75rem;
+  font-family: var(--font-label);
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 24px rgba(163, 166, 255, 0.3);
+}
+
+.btn-primary:hover {
+  filter: brightness(1.1);
+  transform: translateY(-2px);
+}
+
+/* Gradiente de texto "Alex" */
+.text-gradient {
+  background: linear-gradient(to right, var(--primary), #8387ff, var(--secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Variables de color por si acaso no las tienes */
+:root {
+  --primary: #a3a6ff;
+  --secondary: #89f5e7;
+  --background: #10062d;
+  --on-surface: #eae1ff;
+  --on-surface-variant: #b0a4d3;
+  --outline-variant: #4b426a;
+}
+
+/* EL BOTÓN DE VOLVER */
+.back-button-global {
+  display: inline-flex !important;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--outline-variant);
+  color: var(--on-surface-variant);
+  padding: 12px 24px;
+  border-radius: 14px;
+  cursor: pointer;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  margin-bottom: 40px;
+  position: relative;
+  z-index: 100;
+}
+
+.back-button-global:hover {
+  background: var(--primary);
+  color: #000;
+  border-color: var(--primary);
+  transform: translateX(-8px);
+  box-shadow: 0 0 20px rgba(163, 166, 255, 0.3);
+}
+
+.back-button-global span {
+  font-size: 1.1rem;
+}
+
+/* Degradado de texto para los títulos */
+.text-gradient {
+  background: linear-gradient(to right, var(--primary), var(--secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

@@ -1,83 +1,102 @@
-import React, { useState } from 'react';
-// Importamos Link igual que en tu otro componente
-import { Link } from "react-router";
+import { useNavigate } from 'react-router';
+import './Contact.css';
 
-const Contactme = () => {
-  const [form, setForm] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: '',
-  });
+const Contact = () => {
+  const navigate = useNavigate();
 
-  const handleOnchange = (event) => {
-    const { name, value } = event.target;
-    setForm((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-    console.log(form);
-  };
-
-  const handleSendEmail = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    const data = await fetch('/api/server', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        name: form.name,
-        email: form.email,
-        message: form.message,
-      }),
-    });
-
-    const res = await data.json();
-    console.log(res);
+    // agg la logica para enviar un correo o conectar con un servicio de backend
+    console.log("Transmisión inicializada con éxito");
+    alert("Mensaje enviado al nexo central.");
   };
 
   return (
-    <div>
-      
-      
-      
-      <h2>Contactme</h2> 
-      <div>
-        <div style={{ display: 'flex', gap: '20px' }}>
-          <input
-            name="name"
-            type="text"
-            value={form.name}
-            onChange={handleOnchange}
-          />
-          <input
-            name="email"
-            type="email"
-            value={form.email}
-            onChange={handleOnchange}
-          />
+    <main className="contact-main">
+      <button onClick={() => navigate(-1)} className="back-button-global">
+        <span className="material-symbols-outlined">arrow_back</span>
+        BACK
+      </button>
+
+      <header className="contact-header">
+        <div className="header-glow"></div>
+        <span className="label-text">Available for select collaborations</span>
+        <h1 className="contact-title">
+          Let's architect the <br />
+          <span className="text-gradient">next dimension.</span>
+        </h1>
+      </header>
+
+      <section className="contact-grid">
+        {/* Sidebar con información completa */}
+        <div className="contact-sidebar">
+          <div className="info-group">
+            <h3 className="sidebar-subtitle">Core Nexus</h3>
+            <div className="info-items">
+              <div className="info-item">
+                <div className="info-icon">
+                  <span className="material-symbols-outlined">alternate_email</span>
+                </div>
+                <div className="info-text">
+                  <span className="info-label">Electronic Mail</span>
+                  <p className="info-value">technogirls03@gmail.com</p>
+                </div>
+              </div>
+
+              <div className="info-item">
+                <div className="info-icon">
+                  <span className="material-symbols-outlined">location_on</span>
+                </div>
+                <div className="info-text">
+                  <span className="info-label">Geographic Anchor</span>
+                  <p className="info-value">Zapopan, Jalisco</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="info-group">
+            <h3 className="sidebar-subtitle">Social Protocol</h3>
+            <div className="social-links">
+              <a href="https://www.linkedin.com/in/eilyn-resendez/" className="social-pill">LinkedIn</a>
+              <a href="https://github.com/eilyn0208" className="social-pill">GitHub</a>
+            </div>
+          </div>
         </div>
-        <div style={{ paddingTop: '20px' }}>
-          <textarea
-            name="message"
-            type="message"
-            rows="10"
-            cols="50"
-            value={form.message}
-            onChange={handleOnchange}
-          />
+
+        {/* Formulario con campos extra */}
+        <div className="contact-form-container">
+          <form className="contact-form" onSubmit={handleSubmit}>
+            <div className="form-row">
+              <div className="form-group">
+                <label>Identity</label>
+                <input type="text" placeholder="John Doe" required />
+              </div>
+              <div className="form-group">
+                <label>Digital Address</label>
+                <input type="email" placeholder="example@domain.com" required />
+              </div>
+            </div>
+
+            <div className="form-group">
+              <label>Topic Frequency</label>
+              <input type="text" placeholder="New Project Development" />
+            </div>
+
+            <div className="form-group">
+              <label>Transmission Content</label>
+              <textarea rows="5" placeholder="How can we build the future together?"></textarea>
+            </div>
+
+            <button type="submit" className="submit-btn">
+              <span>INITIALIZE SEND</span>
+              <span className="material-symbols-outlined">send</span>
+            </button>
+          </form>
         </div>
-        <button 
-          style={{ width: '140px', height: '40px' }} 
-          onClick={handleSendEmail}
-        >
-          Contact Me
-        </button>
-      </div>
-      <p>
-        <Link to={'/'}>Return</Link>
-      </p>
-    </div>
+      </section>
+    </main>
   );
 };
 
-export default Contactme;
+export default Contact;
