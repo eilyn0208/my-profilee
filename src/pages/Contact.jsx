@@ -4,12 +4,25 @@ import './Contact.css';
 const Contact = () => {
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // agg la logica para enviar un correo o conectar con un servicio de backend
-    console.log("Transmisión inicializada con éxito");
-    alert("Mensaje enviado al nexo central.");
-  };
+const handleSubmit = async (e) => {
+    e.preventDefault()
+    setStatus('sending')
+    try {
+      const res = await fetch('/api/server', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      })
+      if (res.ok) {
+        setStatus('ok')
+        setForm({ name: '', email: '', message: '' })
+      } else {
+        setStatus('error')
+      }
+    } catch {
+      setStatus('error')
+    }
+  }
 
   return (
     <main className="contact-main">
